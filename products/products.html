@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="description" content="This is my project page - it shows all of my projects">
+        <title>Project Page</title>
+        <link rel="stylesheet" type="text/css" href="style.css">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+        
+    </head>
+
+<style>
+    /*JavaScript Light and Dark Mode Toggle*/
+  .dark-mode {
+    background-color: #333;
+    color: #f0f0f0;
+    transition: all 0.4s ease-in;
+  }
+  
+  .toggle-switch {
+    position: relative;
+    display: inline-block;
+    width: 3.75rem;
+    height: 2.13rem;
+    margin-bottom: 0.63rem;
+    margin-inline: auto;
+  }
+  
+  .toggle-switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+  
+  .slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    transition: all 0.4s ease-in;
+    border-radius: 2.13rem;
+  }
+  
+  .slider:before {
+    position: absolute;
+    content: "";
+    height: 1.63rem;
+    width: 1.63rem;
+    left: 0.25rem;
+    bottom: 0.25rem;
+    background-color: white;
+    transition: 0.4s;
+    border-radius: 50%;
+  }
+  
+  input:checked + .slider {
+    background-color: #2196f3;
+  }
+  
+  input:focus + .slider {
+    box-shadow: 0 0 2px #2196f3;
+  }
+  
+  input:checked + .slider:before {
+    transform: translateX(1.63rem);
+  }
+    body {
+      background-color:#EDE4FF;
+    }
+
+    h1{
+        background-color:#AF8BAF; 
+        text-align:center;
+        border: 5px solid black;
+        font-family: "Times New Roman", Times, serif;
+        font-weight: bolder;
+       }
+/*Navbar*/
+    .btn-outline-success {
+        background-color:#9E4784;
+        border: 2px solid black; 
+        color : black;
+        }
+            
+
+       .btn-outline-success:hover {
+        background-color: purple;
+        border: 2px solid purple;
+        color: white;
+       }
+
+       .nav-item a{
+    text-decoration: none;
+    color: black;
+    font-family: "Times New Roman", Times, serif; 
+   }
+
+       
+</style>
+
+    <body>
+<!--Dark/Light Mode Toogle-->
+    <div class="container">
+        <label class="toggle-switch">
+        <input type="checkbox" id="mode-toggle">
+        <span class="slider"></span>
+      </label>
+    </div>
+<!--Navbar-->
+        <nav class="navbar"  style="background-color: #9E4784";>
+            <div class="container-fluid">
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                  <li class="nav-item">
+                    <a href="../index.html">Home</a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="./about-us.html">About</a>
+                  </li>
+                  <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                      More
+                    </a>
+                    <ul class="dropdown-menu">
+                      <li><a class="dropdown-item" href="#">Action</a></li>
+                      <li><a class="dropdown-item" href="#">Another action</a></li>
+                      <li><hr class="dropdown-divider"></li>
+                      <li><a class="dropdown-item" href="#">Something else here</a></li>
+                    </ul>
+                  </li>
+                  <li class="nav-item">
+                    <a href="./contact-us.html">Contact</a>
+                  </li>
+                  
+                  <li class="nav-item">
+                    <a href="products.html">Projects</a>
+                  </li>
+                </ul>
+                <form class="d-flex" role="search">
+                  <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                  <button class="btn btn-outline-success" type="submit">Search</button>
+                </form>
+              </div>
+            </div>
+          </nav>
+    
+             <!--<a href="../index.html">Home</a>
+        <a href="./about-us.html">About</a>
+        <a href="./contact-us.html">Contact</a>
+        <a href="products.html">Projects</a>
+    </div>-->
+<!--Project Content-->
+    <main>
+    <h1>Projects</h1>
+        <div class="container">
+    <!--Project Cards-->
+          <div class="article-cards">
+            
+            <div class="row row-cols-1 row-cols-md-3 g-4">
+      <div class="col">
+        <div class="card h-100">
+          <img src="https://i.postimg.cc/MpRyYWmj/IMG-4023.jpg" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title">Project 1</h5>
+            <p class="card-text">Creating a simple webpage.</p>
+         <a href="#" class="btn btn-link">View on GitHub</a>
+          </div>
+          <div class="card-footer">
+          
+        
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card h-100">
+          <img src="https://i.postimg.cc/BQFNnWwN/IMG-3942.jpg" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title">Project 2</h5>
+            <p class="card-text">Adding CSS to my personal webpage.</p>
+            <a href="#" class="btn btn-link">View on GitHub</a>
+          </div>
+          <div class="card-footer">
+            
+          </div>
+        </div>
+      </div>
+
+      <div class="col">
+        <div class="card h-100">
+          <img src="https://i.postimg.cc/59hqG7Nz/IMG-3389.jpg" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title">Project 4</h5>
+            <p class="card-text">Adding Advanced CSS to my personal webpage.</p>
+            <a href="#" class="btn btn-link">View on GitHub</a>
+          </div>
+          <div class="card-footer">
+           
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="/javascript/script.js"></script>
+    </body>
+</html>

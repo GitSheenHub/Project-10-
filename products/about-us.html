@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="This is my about page - it shows about me">
+  <title>About Page</title>
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.7/css/all.css">
+ 
+
+  
+  <style>
+    /*JavaScript Light and Dark Mode Toggle*/
+  .dark-mode {
+    background-color: #333;
+    color: #f0f0f0;
+    transition: all 0.4s ease-in;
+  }
+  
+  .toggle-switch {
+    position: relative;
+    display: inline-block;
+    width: 3.75rem;
+    height: 2.13rem;
+    margin-bottom: 0.63rem;
+    margin-inline: auto;
+  }
+  
+  .toggle-switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+  
+  .slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    transition: all 0.4s ease-in;
+    border-radius: 2.13rem;
+  }
+  
+  .slider:before {
+    position: absolute;
+    content: "";
+    height: 1.63rem;
+    width: 1.63rem;
+    left: 0.25rem;
+    bottom: 0.25rem;
+    background-color: white;
+    transition: 0.4s;
+    border-radius: 50%;
+  }
+  
+  input:checked + .slider {
+    background-color: #2196f3;
+  }
+  
+  input:focus + .slider {
+    box-shadow: 0 0 2px #2196f3;
+  }
+  
+  input:checked + .slider:before {
+    transform: translateX(1.63rem);
+  }
+  /*Navbar*/
+    .btn-outline-success {
+        background-color:#9E4784;
+        border: 2px solid black; 
+        color : black;
+        }
+            
+
+       .btn-outline-success:hover {
+        background-color: purple;
+        border: 2px solid purple;
+        color: white;
+       }
+       .nav-item a{
+        text-decoration: none;
+        color: black;
+        font-family: "Times New Roman", Times, serif; 
+       }
+ 
+    body {
+      background-color:#EDE4FF;
+      font-family: "Times New Roman", Times, serif; 
+    }
+    h1 {
+    background-color:#AF8BAF;
+    text-align:center;
+    font-weight: bolder;
+    border: 5px solid black; 
+    
+    }
+    h2{
+       color: #630436;
+       font-weight: bolder;
+    }
+  
+    h4 {
+    text-align: center;
+}
+    
+
+    p {
+    background-image: url("https://i.postimg.cc/3NknbznR/rodion-kutsaiev-c-EIDK7h-AEA-unsplash.jpg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: 100% 100%;
+  }
+
+  div, p{
+    color:white;
+  }
+
+  
+   /*Grid*/
+   .grid-container {
+  display: grid;
+  grid-template-columns: auto auto auto auto auto auto;
+  background-color: #9E4784;;
+  padding: 10px;
+}
+.grid-item {
+  background-color:#DDA0DD;
+  border: 1px solid black;
+  padding: 20px;
+  font-size: 30px;
+  text-align: center;
+}
+
+      /*Fade and Slide on Scroll*/
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+    
+  overflow-x: hidden;
+  
+}
+
+.container2 {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.heading {
+  font-size: 3rem;
+}
+
+.subheading {
+  font-size: 1.5rem;
+  color: white;
+}
+
+.item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: /*100vh*/ 50vh;
+}
+
+.item:not(:first-child) {
+  opacity: 0;
+  transition: opacity 0.5s, transform 0.5s;
+}
+
+.item__content {
+  background-color: #50404d;
+  color: #f3f3f3;
+  text-align: center;
+  padding: 7rem;
+  border-radius: 7px;
+}
+
+.item > p {
+  text-align: center;
+}
+
+.left {
+  transform-origin: left center;
+  transform: translateX(-50%);
+}
+
+.right {
+  transform-origin: right center;
+  transform: translateX(50%);
+}
+
+.slide-in {
+  opacity: 1 !important;
+  transform: translateX(0);
+}/*Fade and Slide on Scroll Ends*/
+
+.center { 
+        margin: auto;
+        width: fit-content;
+        } 
+     
+     .fa-google{
+       color: #301934 ;
+     }
+     
+     .fa-linkedin{
+       color: #301934;
+     }
+     
+     .fa-github{
+       color: #301934;
+     }
+  
+    </style>
+    </head>
+
+<body>
+ <!--Dark/Light Mode Toogle-->
+    <div class="container">
+          <label class="toggle-switch">
+          <input type="checkbox" id="mode-toggle">
+          <span class="slider"></span>
+        </label>
+      </div>
+<!--Navbar-->
+     <header>
+      <nav class="navbar"  style="background-color: #9E4784";>
+        <div class="container-fluid">
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a href="../index.html">Home</a>
+              </li>
+              <li class="nav-item">
+                <a href="about-us.html">About</a>
+              </li>
+
+              <li class="nav-item">
+                <a href="contact-us.html">Contact</a>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  More
+                </a>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="#">Action</a></li>
+                  <li><a class="dropdown-item" href="#">Another action</a></li>
+                  <li><hr class="dropdown-divider"></li>
+                  <li><a class="dropdown-item" href="#">Something else here</a></li>
+                </ul>
+              </li>
+              <li class="nav-item">
+                <a href="products.html">Projects</a>
+              </li>
+            </ul>
+            <form class="d-flex" role="search">
+              <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+              <button class="btn btn-outline-success" type="submit">Search</button>
+            </form>
+          </div>
+        </div>
+      </nav>
+    </header>   
+<!--Grid-->
+
+
+
+<h1>About </h1>
+  
+<div class="grid-container">
+  <div class="grid-item"><h2>About Me</h2><p>I’m currently enrolled in a tech program called Correlation One, where I learn about software development. I always had an interest in technology as a kid, learning how to first use the computer in my typing class. Learning how the computer operates & works internally was something I wanted to learn but wasn’t sure what career path would work for me, especially since I also had other career ideas in mind.I know that I want a career where I can become financially stable in life as well as helping those in need whether its donating, volunteering, or charity-related.</p></div>
+  <div class="grid-item"><h2>Blog</h2><p>I’m new to the tech scene & so far learning has been difficult yet an amazing experience. I like the coding part which reminds me of typing, well technically it is typing. I also like the problem solving aspect in this field, where you have to find the solution, in this case multiple solutions to build your code. Because of the problem solving skills in this field, my strength & quality is perseverance, despite the difficulties because theres no easy way in life without putting in the work. My goals are to become a Computer Programmer or a Software Developer with the hopes of including art, specifically digital art, to my career & possibly gaming. With this career, it’ll be a great outlet for growth and to express myself by building things I love as well as use my outlet to spread positivity to the world. I would like to work with creative individuals in the developer world as well as make the environment the safest and most comfortable for all people from different backgrounds/communities.</p></div>
+  <div class="grid-item"><h2>Interest</h2><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p></div>  
+
+</div>
+     <h4> Follow Me</h4>
+     <div class="center">
+      <a href="https://www.google.com" class="fab fa-google"></a>
+      <a href="https://www.linkedin.com/" class="fab fa-linkedin"></a>
+      <a href="https://github.com/" class="fab fa-github"></a>
+</div>
+<br><br>
+
+<p>&copy;Copyright, Sheena</p>
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="/javascript/script.js"></script>
+</body>
+</html>
