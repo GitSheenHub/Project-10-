@@ -7,7 +7,12 @@
         <title>Contact Page</title>
         <link rel="stylesheet" type="text/css" href="style.css">
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-        
+        <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css"
+        integrity="sha256-kLaT2GOSpHechhsozzB+flnD+zUyjE2LlfWPgU04xyI="
+        crossorigin=""/>
+        <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"
+        integrity="sha256-WBkoXOwTeyKclOHuWtc+i2uENFpDZ9YPdf5Hf+D7ewM="
+        crossorigin=""></script>
     
 <style>
     /*JavaScript Light and Dark Mode Toggle*/
@@ -235,69 +240,114 @@ legend {
           </div>
         </div>
       </nav>
-    
+  
 <!--Contact Content-->
     <h1>Contact</h1>
+ <!--Creating Map-->
+  <div id="map" style="width: 600px; height: 400px;"></div>
+  <script>
+      const map = L.map('map').setView([39.2904361, -76.6133439],13);
+        L.tileLayer('http://{s}.google.com/vt/lyrs=m&x={x}&y={y}&z={z}', {
+          maxZoom: 20,
+          subdomains: ['mt0', 'mt1', 'mt2', 'mt3'],
+          attribution: 'Copyright Google Maps'
+          }).addTo(map);
+      //Add marker
+      var marker = L.marker([39.2904361, -76.6133439], {color: 'red'}).addTo(map);
+      //Add circle
+      var circle = L.circle([39.28, -76.61], {radius: 600}).addTo(map);
+      //Add polyline
+      var latlngs = [[39.28, -122.68], [37.77, -122.43], [34.04, -118.2]];
+      var polyline = L.polyline(latlngs, {color: 'red'}).addTo(map);
+       //Add popup
+      var popup = L.popup()
+         .setLatLng([43.1123, -79.01])
+         .setContent("Testing a popup.")
+         .openOn(map);
+         //Popups for our objects
+         marker.bindPopup("Testing a popup.").openPopup();
+circle.bindPopup("<b>Testing!</b>I am a circle.");
+polygon.bindPopup("Testing a polygon.");
+//Event to view corrdinates
+function onMapClick(e) {
+      alert("You clicked the map at " + e.latlng);
+}
+
+map.on('click', onMapClick);
+</script>
+<br>
     <h3>Please fill out your personal information</h3>
 <!--Client-side Validation-->
-    <main class="container main">
-        <div id="form-submitted-msg">Form successfully submitted!</div>
+<main class="container main">
+  <div id="form-submitted-msg">Form successfully submitted!</div>
+
+  <form id="exampleForm" novalidate>
+    <div class="input-group">
+      <label for="firstName" class="form-label">First name </label>
+      <input type="text" id="firstName" name="firstName" class="form-control" required>
+      <small class="error-msg invalid-feedback">Required</small>
+    </div>
+
+    <div class="input-group">
+      <label for="lastName" class="form-label">Last name </label>
+      <input type="text" id="lastName" name="lastName" class="form-control" required>
+      <small class="error-msg invalid-feedback">Required</small>
+    </div>
+
+    <div class="input-group">
+      <label for="email" class="form-label">Email </label>
+      <input type="email" id="email" name="email" class="form-control" required>
+      <small class="error-msg invalid-feedback">Required</small>
+    </div>
+
+     <div class="input-group">
+      <label for="subject" class="form-label">Subject </label>
+      <input type="text" id="subject" name="subject" class="form-control" required>
+      <small class="error-msg invalid-feedback">Required</small>
+    </div>
+
+    <div class="input-group">
+      <label for="phone" class="form-label">Phone Number </label>
+      <input type="phone" id="phone" name="phone" class="form-control" required>
+      <small class="error-msg invalid-feedback">Required</small>
+    </div>
+
+    <div class="input-group">
+      <label for="message" class="form-label">Message </label>
+      <textarea id="message"class="form-control"></textarea>
+      <small class="error-msg invalid-feedback">Required</small>
+    </div>
+
+
+    <!--<div class="input-group select">
+      <label for="password" class="form-label">Select Account Type </label>
+      <select id="accountType" name="accountType" class="form-select" required>
+        <option value="Please select an option" selected class="text-muted">Please select an option</option>
+        <option value="Free Account">Free Account</option>
+        <option value="Premium Account">Premium Account</option>
+      </select>
+      <small class="error-msg invalid-feedback">Required</small>
+    </div>
+
+    <div class="input-group radio">
+      <div class="form-check">
+        <input type="radio" id="personal" name="purpose" value="Personal" class="form-check-input" required>
+        <label for="personal" class="form-check-label">Personal</label>
+        <small class="error-msg invalid-feedback">Required</small>
+      </div>
+  
+      <div class="form-check">
+        <input type="radio" id="business" name="purpose" value="Business" class="form-check-input" required>
+        <label for="business" class="form-check-label">Business</label>
+        <small class="error-msg invalid-feedback">Required</small>
+      </div>
+
     
-        <form id="exampleForm" novalidate>
-          <div class="input-group">
-            <label for="firstName" class="form-label">First name </label>
-            <input type="text" id="firstName" name="firstName" class="form-control" required>
-            <small class="error-msg invalid-feedback">Required</small>
-          </div>
-
-          <div class="input-group">
-            <label for="lastName" class="form-label">Last name </label>
-            <input type="text" id="lastName" name="lastName" class="form-control" required>
-            <small class="error-msg invalid-feedback">Required</small>
-          </div>
-
-          <div class="input-group">
-            <label for="email" class="form-label">Email </label>
-            <input type="email" id="email" name="email" class="form-control" required>
-            <small class="error-msg invalid-feedback">Required</small>
-          </div>
-
-          <div class="input-group">
-            <label for="password" class="form-label">Password </label>
-            <input type="password" id="password" name="password" class="form-control" required>
-            <small class="error-msg invalid-feedback">Required</small>
-          </div>
-
-          <div class="input-group select">
-            <label for="password" class="form-label">Select Account Type </label>
-            <select id="accountType" name="accountType" class="form-select" required>
-              <option value="Please select an option" selected class="text-muted">Please select an option</option>
-              <option value="Free Account">Free Account</option>
-              <option value="Premium Account">Premium Account</option>
-            </select>
-            <small class="error-msg invalid-feedback">Required</small>
-          </div>
-
-          <div class="input-group radio">
-            <div class="form-check">
-              <input type="radio" id="personal" name="purpose" value="Personal" class="form-check-input" required>
-              <label for="personal" class="form-check-label">Personal</label>
-              <small class="error-msg invalid-feedback">Required</small>
-            </div>
-        
-            <div class="form-check">
-              <input type="radio" id="business" name="purpose" value="Business" class="form-check-input" required>
-              <label for="business" class="form-check-label">Business</label>
-              <small class="error-msg invalid-feedback">Required</small>
-            </div>
-
-          
-          <div class="input-group checkbox form-check">
-            <input type="checkbox" name="subscribe" id="subscribeYes" class="form-check-input" required>
-            <label for="subscribeYes" class="form-check-label">Subscribe to our newsletter?</label>
-            <small class="error-msg invalid-feedback">Required</small>
-          </div>
-
+    <div class="input-group checkbox form-check">
+      <input type="checkbox" name="subscribe" id="subscribeYes" class="form-check-input" required>
+      <label for="subscribeYes" class="form-check-label">Subscribe to our newsletter?</label>
+      <small class="error-msg invalid-feedback">Required</small>
+    </div>-->
           <div class="form-btns">
             <button type="submit" class="btn btn-primary submit" disabled>SUBMIT</button>
             <button type="reset" class="btn btn-secondary">CLEAR FORM</button>
